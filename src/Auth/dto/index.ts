@@ -10,3 +10,10 @@ export class SignUpDTO {
   @IsStrongPassword()
   password:string
 }
+//login 
+export class LoginDTO  {
+    @IsEmail()
+  email:string
+  @IsStrongPassword()
+  password:string
+}
