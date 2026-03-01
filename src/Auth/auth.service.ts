@@ -20,7 +20,7 @@ export class AuthService {
   //signup
   async signUpService(signupDTO: SignUpDTO): Promise<TUser> {
     //get data
-    const { name, email, password } = signupDTO;
+    const { name, email, password ,role} = signupDTO;
     //check existence
     const userExistence = await this.userRepository.findByEmail(email);
     if (userExistence) {
@@ -31,6 +31,7 @@ export class AuthService {
     const userCreated = await this.userRepository.create({
       name,
       email,
+      role,
       password: hash(password),
     });
     //send email
